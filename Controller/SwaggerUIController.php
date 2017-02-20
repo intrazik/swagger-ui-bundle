@@ -14,7 +14,6 @@ class SwaggerUIController extends Controller
     {
         $docUrl = $this->get('service_container')->getParameter('al_swagger_ui.resource_list');
         $jsConfig = $this->get('service_container')->getParameter('al_swagger_ui.js_config');
-        $authConfig = $this->get('service_container')->getParameter('al_swagger_ui.auth_config');
 
         if (preg_match('/^(https?:)?\/\//', $docUrl)) {
             // If https://..., http://..., or //...
@@ -32,7 +31,6 @@ class SwaggerUIController extends Controller
         return $this->render('ALSwaggerUIBundle:SwaggerUI:index.html.twig', array(
             'resource_list_url' => $url,
             'js_config' => $jsConfig,
-            'auth_config' => $authConfig
         ));
     }
 }
